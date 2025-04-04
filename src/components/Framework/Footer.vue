@@ -20,7 +20,7 @@
         </router-link>
       </li>
       <li>
-        <router-link to="/user-management">
+        <router-link to="/DailyReport">
           <div class="nav-icon">📑</div>
           <div class="nav-text">人员填报</div>
         </router-link>

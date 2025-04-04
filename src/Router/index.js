@@ -3,6 +3,7 @@ import ProgressOverview from "@/components/Overview/ProgressOverview.vue"; // ÂÅ
 import ProjectProgress from "@/components/Overview/ProjectProgress.vue";
 import MachineDetail from "@/components/Overview/MachineDetail.vue";
 import NewDrillTask from "@/components/editView/NewDrillTask.vue";
+import DailyReport from "@/components/Overview/DailyReport.vue";
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: '/MachineDetail/NewDrillTask',
         name: 'NewDrillTask',
         component: NewDrillTask
+    },
+    {
+        path: '/DailyReport',
+        name: 'DailyReport',
+        component: DailyReport
     }
 ]
 
