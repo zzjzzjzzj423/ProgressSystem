@@ -21,8 +21,11 @@
           <div class="chart-section">
             <div class="chart-placeholder">饼图</div>
             <div class="chart-info">
-              <p>进度：XX%</p>
-              <p>已完成工期：N 天</p>
+              <p>累计进度：XX%</p>
+              <p>累计总进尺：N 天</p>
+              <p>完成率：XX%</p>
+              <p>进行中的项目：XX%</p>
+              <p>进行中的钻孔：XX%</p>
             </div>
           </div>
         </div>

@@ -4,6 +4,8 @@ import ProjectProgress from "@/components/Overview/ProjectProgress.vue";
 import MachineDetail from "@/components/Overview/MachineDetail.vue";
 import NewDrillTask from "@/components/editView/NewDrillTask.vue";
 import DailyReport from "@/components/Overview/DailyReport.vue";
+import GenerateReport from "@/components/Overview/GenerateReport.vue";
+import ProjectDetail from "@/components/Overview/ProjectDetail.vue";
 
 const routes = [
     {
@@ -30,6 +32,16 @@ const routes = [
         path: '/DailyReport',
         name: 'DailyReport',
         component: DailyReport
+    },
+    {
+        path: '/GenerateReport',
+        name: 'GenerateReport',
+        component: GenerateReport
+    },
+    {
+        path: '/ProjectProgress/ProjectDetail',
+        name: 'ProjectDetail',
+        component: ProjectDetail
     }
 ]
 

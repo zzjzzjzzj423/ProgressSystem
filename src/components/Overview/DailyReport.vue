@@ -6,20 +6,11 @@
     <!-- 中间内容区域：可上下滚动 -->
     <div class="content-section">
       <h2>每日填报</h2>
-      <el-form
-          ref="dailyForm"
-          :model="formData"
-          label-width="120px"
-      >
+      <el-form ref="dailyForm" :model="formData" label-width="120px">
         <!-- 机台（下拉选择） -->
         <el-form-item label="机台">
           <el-select v-model="formData.machine" placeholder="请选择机台">
-            <el-option
-                v-for="(item, index) in machineOptions"
-                :key="index"
-                :label="item"
-                :value="item"
-            />
+            <el-option v-for="(item, index) in machineOptions" :key="index" :label="item" :value="item" />
           </el-select>
         </el-form-item>
 
@@ -49,8 +40,6 @@
               v-model="formData.dateOfHolePlacement"
               type="date"
               placeholder="选择日期"
-              format="yyyy-MM-dd"
-              value-format="yyyy-MM-dd"
           />
         </el-form-item>
 
@@ -75,8 +64,6 @@
               v-model="formData.drillingStartDate"
               type="date"
               placeholder="选择日期"
-              format="yyyy-MM-dd"
-              value-format="yyyy-MM-dd"
           />
         </el-form-item>
 
@@ -98,57 +85,30 @@
         <!-- 各班进尺 (一班、二班、三班) -->
         <el-form-item label="各班进尺">
           <div style="display: flex; gap: 8px;">
-            <el-input
-                v-model="formData.shiftDepthClassA"
-                placeholder="一班"
-                style="width: 33%;"
-            />
-            <el-input
-                v-model="formData.shiftDepthClassB"
-                placeholder="二班"
-                style="width: 33%;"
-            />
-            <el-input
-                v-model="formData.shiftDepthClassC"
-                placeholder="三班"
-                style="width: 33%;"
-            />
+            <el-input v-model="formData.shiftDepthClassA" placeholder="一班" style="width: 33%;" />
+            <el-input v-model="formData.shiftDepthClassB" placeholder="二班" style="width: 33%;" />
+            <el-input v-model="formData.shiftDepthClassC" placeholder="三班" style="width: 33%;" />
           </div>
         </el-form-item>
 
         <!-- 当日进尺 -->
         <el-form-item label="当日进尺">
-          <el-input
-              v-model="formData.dailyDepth"
-              placeholder="当天累计进尺"
-          />
+          <el-input v-model="formData.dailyDepth" placeholder="当天累计进尺" />
         </el-form-item>
 
-        <!-- 孔内情况 (原“当内情况”) -->
+        <!-- 孔内情况 -->
         <el-form-item label="孔内情况">
-          <el-input
-              type="textarea"
-              v-model="formData.currentSituation"
-              placeholder="填写孔内情况"
-          />
+          <el-input type="textarea" v-model="formData.currentSituation" placeholder="填写孔内情况" />
         </el-form-item>
 
         <!-- 设备情况 -->
         <el-form-item label="设备情况">
-          <el-input
-              type="textarea"
-              v-model="formData.equipmentSituation"
-              placeholder="填写设备情况"
-          />
+          <el-input type="textarea" v-model="formData.equipmentSituation" placeholder="填写设备情况" />
         </el-form-item>
 
         <!-- 备注 (选填) -->
         <el-form-item label="备注">
-          <el-input
-              type="textarea"
-              v-model="formData.remark"
-              placeholder="选填"
-          />
+          <el-input type="textarea" v-model="formData.remark" placeholder="选填" />
         </el-form-item>
 
         <!-- 附件 (选填) -->
@@ -205,14 +165,11 @@ import {
   ElUpload,
   ElDatePicker
 } from 'element-plus'
-// 若需要页面顶部Header，可自行引入
-// import Header from '@/components/Framework/ProjectHeader.vue'
 import Footer from '@/components/Framework/Footer.vue'
 
 export default {
   name: 'DailyReport',
   components: {
-    // Header,
     Footer,
     ElForm,
     ElFormItem,
@@ -226,73 +183,42 @@ export default {
   },
   setup() {
     const formData = ref({
-      // 机台信息
       machine: '',
-      // 钻孔编号
       drillNumber: '',
-      // 钻机型号
       drillType: '',
-      // 总进尺
       totalDepth: '',
-      // 设计孔深
       designDepth: '',
-      // 放孔日期
       dateOfHolePlacement: '',
-      // 当前孔深
       currentHoleDepth: '',
-      // 当前倾角
       currentInclination: '',
-      // 当前方位角
       currentAzimuth: '',
-      // 开孔日期
       drillingStartDate: '',
-      // 开层项目
       stratumOpeningProject: '',
-      // 工作区
       workArea: '',
-      // 施工负责人
       constructionSupervisor: '',
-      // 各班进尺：一班、二班、三班
       shiftDepthClassA: '',
       shiftDepthClassB: '',
       shiftDepthClassC: '',
-      // 当日进尺
       dailyDepth: '',
-      // 孔内情况
       currentSituation: '',
-      // 设备情况
       equipmentSituation: '',
-      // 备注
       remark: '',
-      // 是否终孔
       isEndHole: false
     })
 
-    // 示例机台选项
     const machineOptions = ['CSD-1800X', 'CSD-2000', 'XYZ-123']
-
-    // 上传的附件列表
     const fileList = ref([])
 
-    // 处理预览附件
     const handlePreview = (file) => {
       console.log('preview file:', file)
     }
-
-    // 移除附件
     const handleRemove = (file, fileListNow) => {
       console.log('remove file:', file, fileListNow)
     }
-
-    // 提交表单
     const handleSubmit = () => {
-      // 这里写提交逻辑
       console.log('提交表单:', formData.value)
     }
-
-    // 保存表单
     const handleSave = () => {
-      // 这里写保存逻辑
       console.log('保存表单:', formData.value)
     }
 
@@ -317,7 +243,6 @@ export default {
   background-color: #f5f5f5;
 }
 
-/* 中间滚动区域 */
 .content-section {
   flex: 1;
   overflow-y: auto;
@@ -325,7 +250,6 @@ export default {
   box-sizing: border-box;
 }
 
-/* 上传区域示例样式 */
 .upload-demo {
   width: 100%;
 }
